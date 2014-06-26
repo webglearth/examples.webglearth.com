@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+      function initialize() {
+        var earth = new WE.map('earth_div');
+        earth.setView([46.8011, 8.2266], 2);
+        WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
+          tileSize: 256,
+          tms: true
+        }).addTo(earth);
+      }
+    </script>
+    <title>WebGL Earth API: Custom Tiles</title>
+  </head>
+  <body onload="initialize()">
+    <p><a href="../index.html">Examples</a> > Custom Tiles</p>
+    <h1>WebGL Earth API: Custom Tiles</h1>
+    <div id="earth_div" style="width:600px;height:400px;border:1px solid gray; padding:2px;"></div>
+  </body>
+</html>
