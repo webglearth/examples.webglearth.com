@@ -11,30 +11,9 @@
         marker.bindPopup("<b>Hello world!</b><br>I am a popup.<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span>", {maxWidth: 150, closeButton: true}).openPopup();
 
         var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-        marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!<br />Here, enjoy another polygon..", {maxWidth: 120, closeButton: false});
-
-        var polygonA = WE.polygon([[50, 1], [51, 0.5], [50.5, 2.5]]).addTo(earth);
-        var polygonB = WE.polygon([[50, 3], [51, 2.5], [50.5, 4.5]], {
-          color: '#ff0',
-          opacity: 1,
-          fillColor: '#f00',
-          fillOpacity: 0.1,
-          weight: 2
-        }).addTo(earth);
-
-        var anotherPolygon = function(e) {
-          WE.polygon([[30, 30], [29, 31], [30, 32], [32, 32], [31, 30]], {
-            color: '#000',
-            opacity: 1,
-            fillColor: '#0f0',
-            fillOpacity: 0.7,
-            weight: 2
-          }).addTo(earth);
-          marker2.off('click', anotherPolygon);
-        };
-        marker2.on('click', anotherPolygon);
-        
-        earth.setView([51.505, 0], 5);
+        marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
+       
+        earth.setView([51.505, 0], 6);
 
       }
     </script>
