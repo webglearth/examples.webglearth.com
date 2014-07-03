@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebGL Earth API: Cassini Terrestrial Globe</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+      function initialize() {
+          var mapBounds = [[-85, -180],
+              [85, 179.99496396]];
+          var mapMinZoom = 0;
+          var mapMaxZoom = 5;
+          var center = [-0.11451196000000152, -0.002518019999996568];
+          var options = { zoom: 0, position: center, sky: true};
+          var earth = new WE.map('earth_div', options);
+
+          var layer = WE.tileLayer('http://tileserver.maptiler.com/cassini-terrestrial/{z}/{x}/{y}.jpg', {
+                bounds: mapBounds,
+                minZoom: mapMinZoom,
+                maxZoom: mapMaxZoom
+              });
+          layer.addTo(earth);      
+      }
+    </script>
+    <style>
+      html, body, #map { width:100%; height:100%; margin:0; padding:0; background-color: #000000; }
+    </style>
+  </head>
+  <body onload="initialize()">
+    <div id="earth_div"></div>
+  </body>
+</html>
