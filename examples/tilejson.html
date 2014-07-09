@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+      function initialize() {
+        var earth = new WE.map('earth_div');
+        earth.setView([44, 2], 6);
+        var osm = WE.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg').addTo(earth);
+        var tileJSON = {
+                          name: "SWISSIMAGE 25m",
+                          description: "The Digital Color Orthophotomosaic of Switzerland",
+                          attribution: "Federal Office of Topography, swisstopo",
+                          type: "baselayer",
+                          version: "1",
+                          format: "jpg",
+                          minzoom: 6,
+                          maxzoom: 12,
+                          bounds: [5.894335, 45.669276, 10.567622, 47.8415],
+                          profile: "mercator",
+                          basename: "swissimage25m",
+                          tilejson: "2.0.0",
+                          scheme: "xyz",
+                          tiles: ["http://tileserver.maptiler.com/swissimage25m/{z}/{x}/{y}.jpg"]
+                       };
+        var swiss = WE.tileLayerJSON(tileJSON);
+        swiss.addTo(earth);
+        earth.setTilt(50);
+        earth.setHeading(300);
+        
+      }
+    </script>
+    <title>WebGL Earth API: TileJSON</title>
+  </head>
+  <body onload="initialize()">
+    <p><a href="../">Examples</a> > TileJSON</p>
+    <h1>WebGL Earth API: TileJSON</h1>
+    <div id="earth_div" style="width:600px;height:400px;border:1px solid gray; padding:2px;"></div>
+  </body>
+</html>

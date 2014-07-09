@@ -4,19 +4,26 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var earth = new WE.map('earth_div');
-        earth.setView([46.8011, 8.2266], 2);
+        var options = {
+          sky: true,
+          atmosphere: true,
+          dragging: true,
+          tilting: true,
+          zooming: false,
+          center: [46.8011, 8.2266],
+          zoom: 2
+        };
+        earth = new WE.map('earth_div', options);
         var natural = WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
           tileSize: 256,
           tms: true
         });
         natural.addTo(earth);
-        
+
         var toner = WE.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
           opacity: 0.5
         });
         toner.addTo(earth);
-        //toner.setOpacity(0.5);
       }
     </script>
     <title>WebGL Earth API: Overlays</title>
