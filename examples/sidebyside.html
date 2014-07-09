@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index, all" />
+    <title>WebGL Earth API - Side-by-side - Basic Leaflet compatibility</title>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+
+    <script>
+      function init() {
+        var m = {};
+       
+        start_(L, 'L');
+        start_(WE, 'WE');
+        
+        function start_(API, suffix) {
+          var mapDiv = 'map' + suffix;
+          var map = API.map(mapDiv, {
+            center: [51.505, -0.09],
+            zoom: 4,
+            dragging: true,
+            scrollWheelZoom: true,
+            proxyHost: 'http://srtm.webglearth.com/cgi-bin/corsproxy.fcgi?url='
+          });
+          m[suffix] = map;
+
+          API.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+            subdomains: '1234',
+            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
+            maxZoom: 18
+          }).addTo(map);
+
+          API.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', {
+            subdomains: '1234',
+            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
+            maxZoom: 18,
+            opacity: 0.5
+          }).addTo(map);
+
+          var json = {"profile": "mercator", "name": "Grand Canyon USGS", "format": "png", "bounds": [-112.26379395, 35.98245136, -112.10998535, 36.13343831], "minzoom": 10, "version": "1.0.0", "maxzoom": 16, "center": [-112.18688965, 36.057944835, 13], "type": "overlay", "description": "", "basename": "grandcanyon", "tilejson": "2.0.0", "sheme": "xyz", "tiles": ["http://tileserver.maptiler.com/grandcanyon/{z}/{x}/{y}.png"]};
+          if (API.tileLayerJSON) {
+            var overlay2 = API.tileLayerJSON(json, map);
+          } else {
+            // if not able to display the overlay, at least move to the same location
+            map.setView([json.center[1], json.center[0]], json.center[2]);
+          }
+          
+          //add simple marker
+          var marker = API.marker([json.center[1], json.center[0]]).addTo(map);
+          marker.bindPopup(suffix, 50);
+          marker.openPopup();
+
+          //Print coordinates of the mouse
+          map.on('mousemove', function(e) {
+            document.getElementById('coords').innerHTML = e.latlng.lat + ', ' + e.latlng.lng;
+          });
+        }
+        
+        //synchronize view
+        m['L'].on('move', function(e){
+          var center = m['L'].getCenter();
+          var zoom = m['L'].getZoom();
+          m['WE'].setView([center['lat'], center['lng']],zoom);
+        });
+      }
+    </script>
+    <style>
+      body, html{width: 100%;}
+      #mapL, #mapWE {position:absolute !important;width:600px;height:600px;top:0;}
+      #mapL {left:0;}
+      #mapWE {left: 600px;;}
+      #coords {position: absolute; bottom: 0;}
+    </style>
+  </head>
+  <body onload="javascript:init()">
+    <div id="mapL"></div>
+    <div id="mapWE"></div>
+    <div id="coords"></div>
+  </body>
+</html>
