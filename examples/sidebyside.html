@@ -9,10 +9,10 @@
     <script>
       function init() {
         var m = {};
-       
+
         start_(L, 'L');
         start_(WE, 'WE');
-        
+
         function start_(API, suffix) {
           var mapDiv = 'map' + suffix;
           var map = API.map(mapDiv, {
@@ -46,7 +46,7 @@
             // if not able to display the overlay, at least move to the same location
             map.setView([json.center[1], json.center[0]], json.center[2]);
           }
-          
+
           //Add simple marker
           var marker = API.marker([json.center[1], json.center[0]]).addTo(map);
           marker.bindPopup(suffix, 50);
@@ -57,20 +57,20 @@
             document.getElementById('coords').innerHTML = e.latlng.lat + ', ' + e.latlng.lng;
           });
         }
-        
+
         //synchronize view
-        m['L'].on('move', function(e){
+        m['L'].on('move', function(e) {
           var center = m['L'].getCenter();
           var zoom = m['L'].getZoom();
-          m['WE'].setView([center['lat'], center['lng']],zoom);
+          m['WE'].setView([center['lat'], center['lng']], zoom);
         });
       }
     </script>
     <style>
-      body, html{width: 100%;}
-      #mapL, #mapWE {position:absolute !important;width:600px;height:600px;top:0;}
-      #mapL {left:0;}
-      #mapWE {left: 600px;;}
+      html, body{padding: 0; margin: 0; overflow: hidden;}
+      #mapL, #mapWE {position:absolute !important; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff;}
+      #mapL {right: 50%;}
+      #mapWE {left: 50%;}
       #coords {position: absolute; bottom: 0;}
     </style>
   </head>

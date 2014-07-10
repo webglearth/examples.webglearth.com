@@ -19,11 +19,13 @@
         earth.panInsideBounds(bounds);
       }
     </script>
+    <style>
+      html, body{padding: 0; margin: 0; overflow: hidden;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
     <title>WebGL Earth API: Maps rendered with MapTiler</title>
   </head>
   <body onload="initialize()">
-    <p><a href="../">Examples</a> >  Maps rendered with MapTiler</p>
-    <h1>WebGL Earth API: Maps rendered with <a href="http://www.maptiler.com" target="_blank">MapTiler</a></h1>
-    <div id="earth_div" style="width:600px;height:400px;border:1px solid gray; padding:2px;"></div>
+    <div id="earth_div"></div>
   </body>
 </html>
