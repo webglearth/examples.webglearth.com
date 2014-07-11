@@ -100,3 +100,17 @@ footer{
   font-weight: bold;
   color: #fff;
 }
+#btn-copy{
+  color: #fff;
+  background-color: #0099CC;
+  border: 1px solid #0099CC;
+  outline: none;
+  padding: 3px;
+  margin: 0;
+  cursor: pointer;
+}
+.zeroclipboard-is-hover{
+  color: #0099CC !important;
+  background-color: #fff !important;
+  border: 1px solid #0099CC !important;
+}

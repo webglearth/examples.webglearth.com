@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
     <title>WebGL Earth examples</title>
     <link rel="shortcut icon" href="favicon.ico">
   </head>
@@ -50,7 +51,10 @@
           <iframe src="examples/helloworld.html" width="700" height="400" name="view" id="view"></iframe>
           <a href="" class="view-example" target="_blank">View example on a separate page</a>
           <div id="desc"><p>Simple example.</p></div>
-          <h2>Source code</h2>
+          <h2>
+            <button id="btn-copy" data-clipboard-text="" title="Copy source code to clipboard">Copy</button>
+            Source code
+          </h2>
           <pre id="source"></pre>
         </section>
       </div>
