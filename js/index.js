@@ -12,7 +12,6 @@ $(document).ready(function() {
       var link = $(this).attr('href');
       var desc = $(this).data('desc');
       updateContent(this, name, link, desc);
-
       return false;
     });
   });
@@ -48,7 +47,6 @@ $(document).ready(function() {
     }).fail(function() {
       alert('Can\'t load file ' + link);
     });
-    console.log('ajax');
   }
 
   //init content
@@ -57,12 +55,10 @@ $(document).ready(function() {
   if (path[1] !== undefined) {
     var link = 'examples/' + path[1] + '.html';
     var elem = $('.link[href="' + link + '"]');
-    console.log(elem);
     var name = $(elem).text();
     var desc = $(elem).data('desc');
     updateContent(elem, name, link, desc);
     loadCode(link);
-    console.log(link);
   } else {
     loadCode('examples/helloworld.html');
   }
