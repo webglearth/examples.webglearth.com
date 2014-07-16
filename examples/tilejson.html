@@ -7,23 +7,7 @@
         var earth = new WE.map('earth_div');
         earth.setView([44, 2], 6);
         var osm = WE.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg').addTo(earth);
-        var tileJSON = {
-          name: "SWISSIMAGE 25m",
-          description: "The Digital Color Orthophotomosaic of Switzerland",
-          attribution: "Federal Office of Topography, swisstopo",
-          type: "baselayer",
-          version: "1",
-          format: "jpg",
-          minzoom: 6,
-          maxzoom: 12,
-          bounds: [5.894335, 45.669276, 10.567622, 47.8415],
-          profile: "mercator",
-          basename: "swissimage25m",
-          tilejson: "2.0.0",
-          scheme: "xyz",
-          tiles: ["http://tileserver.maptiler.com/swissimage25m/{z}/{x}/{y}.jpg"]
-        };
-        var swiss = WE.tileLayerJSON(tileJSON);
+        var swiss = WE.tileLayerJSON('http://tileserver.maptiler.com/swissimage25m.json');
         swiss.addTo(earth);
         earth.setTilt(50);
         earth.setHeading(300);
@@ -31,7 +15,7 @@
     </script>
     <style>
       html, body{padding: 0; margin: 0; overflow: hidden;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; background-color: #000;}
     </style>
     <title>WebGL Earth API: TileJSON</title>
   </head>

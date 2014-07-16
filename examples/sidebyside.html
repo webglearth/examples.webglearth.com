@@ -38,12 +38,12 @@
             opacity: 0.5
           }).addTo(map);
 
-          //add TileJSON overlay
+          //Add TileJSON overlay
           var json = {"profile": "mercator", "name": "Grand Canyon USGS", "format": "png", "bounds": [-112.26379395, 35.98245136, -112.10998535, 36.13343831], "minzoom": 10, "version": "1.0.0", "maxzoom": 16, "center": [-112.18688965, 36.057944835, 13], "type": "overlay", "description": "", "basename": "grandcanyon", "tilejson": "2.0.0", "sheme": "xyz", "tiles": ["http://tileserver.maptiler.com/grandcanyon/{z}/{x}/{y}.png"]};
           if (API.tileLayerJSON) {
             var overlay2 = API.tileLayerJSON(json, map);
           } else {
-            // if not able to display the overlay, at least move to the same location
+            //If not able to display the overlay, at least move to the same location
             map.setView([json.center[1], json.center[0]], json.center[2]);
           }
 
@@ -58,7 +58,7 @@
           });
         }
 
-        //synchronize view
+        //Synchronize view
         m['L'].on('move', function(e) {
           var center = m['L'].getCenter();
           var zoom = m['L'].getZoom();

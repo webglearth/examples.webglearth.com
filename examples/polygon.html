@@ -7,8 +7,16 @@
         var earth = new WE.map('earth_div');
         WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
 
-        var polygonA = WE.polygon([[50, 1], [51, 0.5], [50.5, 2.5]]).addTo(earth);
-        var polygonB = WE.polygon([[50, 3], [51, 2.5], [50.5, 4.5]], {
+        var polygonA = WE.polygon([[49.5608, 5.811], [49.986, 5.723],
+          [50.190, 6.086], [49.781, 6.536], [49.468, 6.372], [49.560, 5.811]]
+                );
+        polygonA.addTo(earth);
+
+        var polygonB = WE.polygon([[46.15700, 5.9765625], [47.010, 6.525],
+          [47.480, 6.965], [47.805, 8.613], [47.442, 9.645], [47.085, 9.459],
+          [46.957, 10.447], [46.225, 10.140], [46.422, 9.272], [45.844, 9.030],
+          [46.445, 8.360], [45.935, 7.811], [45.851, 7.141], [46.430, 6.734],
+          [46.157, 5.976]], {
           color: '#ff0',
           opacity: 1,
           fillColor: '#f00',
@@ -17,12 +25,12 @@
           weight: 2
         }).addTo(earth);
 
-        earth.setView([51.505, 0], 5);
+        earth.setView([48, 6], 5);
       }
     </script>
     <style>
       html, body{padding: 0; margin: 0; overflow: hidden;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; background-color: #000;}
     </style>
     <title>WebGL Earth API: Polygon</title>
   </head>
