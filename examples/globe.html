@@ -7,27 +7,28 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-          var mapBounds = [[-85, -180],[85, 180]];
-          var mapMinZoom = 0;
-          var mapMaxZoom = 5;
-          var center = [0, 0];
-          var options = {zoom: 0, position: center};
-          var earth = new WE.map('earth_div', options);
+        var mapBounds = [[-85, -180], [85, 180]];
+        var mapMinZoom = 0;
+        var mapMaxZoom = 5;
+        var center = [0, 0];
+        var options = {zoom: 0, position: center};
+        var earth = new WE.map('earth_div', options);
 
-          var layer = WE.tileLayer('http://tileserver.maptiler.com/cassini-terrestrial/{z}/{x}/{y}.jpg', {
-                bounds: mapBounds,
-                minZoom: mapMinZoom,
-                maxZoom: mapMaxZoom
-              });
-          layer.addTo(earth);      
+        var layer = WE.tileLayer('http://tileserver.maptiler.com/cassini-terrestrial/{z}/{x}/{y}.jpg', {
+          bounds: mapBounds,
+          minZoom: mapMinZoom,
+          maxZoom: mapMaxZoom
+        });
+        layer.addTo(earth);
       }
     </script>
     <style>
-      html, body{padding: 0; margin: 0; overflow: hidden;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0; background-color: #000;}
-    </style>
-  </head>
-  <body onload="initialize()">
-    <div id="earth_div"></div>
+      html, body{padding: 0; margin: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; 
+                 background-color: #000; position: absolute !important;}
+      </style>
+    </head>
+    <body onload="initialize()">
+      <div id="earth_div"></div>
   </body>
 </html>
