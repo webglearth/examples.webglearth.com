@@ -30,7 +30,7 @@ body {
   color: #fff;
   background-color: #000;
   min-height: 100%;
-  background: url('../img/webglearth-banner-1400-560.png') bottom center;
+  background: url('../img/webglearth-bg-1400-560.png') bottom center;
   background-repeat: no-repeat;
   line-height: 1.8em;
 
@@ -43,8 +43,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-size: 20px;
 }
-h1, h1 a{color:#fff; text-align: center; font-weight: bold;}
-h1 a:hover{text-decoration: none; color: #0099CC;}
+#header img, #logo{  
+  width: 175px;
+  height: 41px;
+  display: inline-block;
+}
+h1{
+  color:#fff; 
+  font-weight: bold; 
+  width: 500px; 
+  display: inline-block; 
+  float: right; 
+  text-align: right;
+  padding: 15px 0 0 0;
+  margin: 0;
+}
+h1 a{display: none;}
 h2{font-size: 16px; float: right;}
 
 p, ul, ol, table, dl {
@@ -68,7 +82,7 @@ ul, li{
   margin: 0 auto;
   padding: 20px;
   width: 960px;
-  background-color: #000;
+  background-color: transparent;
   display: table;
 }
 
@@ -83,13 +97,18 @@ footer{
   display: block; 
   float: left; 
   text-align: right;
-  padding: 70px 10px 10px 0;
+  padding: 75px 10px 10px 0;
 }
 #content{width: 740px; display: block;  float: left;}
-#view{width: 740px; height: 400px; background-color: #000; border: 1px solid #fff;}
+#view{
+  width: 740px; 
+  height: 400px; 
+  background-color: #fff;  
+  border: 1px solid #fff;
+}
 #source{
   width: 720px; 
-  background-color: gray;
+  background-color: rgba(0,0,0,0.8);
   line-height: 1.2;
   font-family: "Courier New", Courier, monospace;
   overflow-x: auto;
