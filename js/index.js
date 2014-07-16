@@ -60,7 +60,7 @@ $(document).ready(function() {
     updateContent(elem, name, link, desc);
     loadCode(link);
   } else {
-    loadCode('examples/helloworld.html');
+    loadCode('examples/satellite.html');
   }
 
 //copy to clipboard
