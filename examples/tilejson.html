@@ -6,7 +6,8 @@
       function initialize() {
         var earth = new WE.map('earth_div');
         earth.setView([44, 2], 6);
-        var osm = WE.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg').addTo(earth);
+        var options = {attribution: 'Tiles Courtesy of MapQuest'};
+        var base = WE.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', options).addTo(earth);
         var swiss = WE.tileLayerJSON('http://tileserver.maptiler.com/swissimage25m.json');
         swiss.addTo(earth);
         earth.setTilt(50);

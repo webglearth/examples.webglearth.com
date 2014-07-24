@@ -5,7 +5,9 @@
     <script>
       function initialize() {
         var earth = new WE.map('earth_div');
-        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
+        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(earth);
 
         var polygonA = WE.polygon([[49.5608, 5.811], [49.986, 5.723],
           [50.190, 6.086], [49.781, 6.536], [49.468, 6.372], [49.560, 5.811]]

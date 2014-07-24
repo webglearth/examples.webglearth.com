@@ -7,7 +7,9 @@
       function initialize() {
         earth = new WE.map('earth_div');
         earth.setView([46.8011, 8.2266], 3);
-        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
+        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(earth);
 
         // Start a simple rotation animation
         setInterval(function() {
