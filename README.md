@@ -1,9 +1,9 @@
-examples.webglearth.org
+examples.webglearth.com
 =======================
 
-Examples for WebGL Earth API. Live at http://examples.webglearth.org.
+Examples for WebGL Earth API. Live at http://examples.webglearth.com.
 
-For link to each example use http://examples.webglearth.org#name-of-example-file.
+For link to each example use http://examples.webglearth.com#name-of-example-file.
 
 ##Add another example
 
