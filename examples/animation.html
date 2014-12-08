@@ -12,10 +12,14 @@
         }).addTo(earth);
 
         // Start a simple rotation animation
-        setInterval(function() {
-          var c = earth.getPosition();
-          earth.setCenter([c[0], c[1] + 0.1]);
-        }, 30);
+        var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+            requestAnimationFrame(animate);
+        });
       }
     </script>
     <style>
