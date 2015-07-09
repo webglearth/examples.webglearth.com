@@ -13,11 +13,13 @@
         var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
         marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
 
+        var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
+
         earth.setView([51.505, 0], 6);
       }
     </script>
     <style>
-      html, body{padding: 0; margin: 0;}
+      html, body{padding: 0; margin: 0; background-color: black;}
       #earth_div{top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
     </style>
     <title>WebGL Earth API: Markers</title>
