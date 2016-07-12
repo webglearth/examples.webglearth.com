@@ -15,22 +15,9 @@
           proxyHost: 'http://srtm.webglearth.com/cgi-bin/corsproxy.fcgi?url='
         });
 
-        var baselayer = WE.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
-          subdomains: '1234',
-          attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-          maxZoom: 18
+        var baselayer = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+          attribution: '© OpenStreetMap contributors'
         }).addTo(map);
-
-        var overlay = WE.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', {
-          subdomains: '1234',
-          attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-          maxZoom: 18,
-          opacity: 0.5
-        }).addTo(map);
-
-        document.getElementById('opacity').addEventListener('change', function(e) {
-          overlay.setOpacity(e.target.value);
-        });
 
         //Add TileJSON layer
         var json = {"profile": "mercator", "name": "Grand Canyon USGS", "format": "png", "bounds": [-112.26379395, 35.98245136, -112.10998535, 36.13343831], "minzoom": 10, "version": "1.0.0", "maxzoom": 16, "center": [-112.18688965, 36.057944835, 13], "type": "overlay", "description": "", "basename": "grandcanyon", "tilejson": "2.0.0", "sheme": "xyz", "tiles": ["http://tileserver.maptiler.com/grandcanyon/{z}/{x}/{y}.png"]};
@@ -129,8 +116,6 @@
       <input type="button" value="Add some markers & polygons" id="addmarkers" onclick="addSomeMarkers()"><br>
     </div>
     <div id="layercontrol">
-      Overlay layer opacity:<br>
-      0<input type="range" id="opacity" min="0" max="1" step="0.01" value="0.5">1<br>
       Grand Canyon opacity:<br>
       0<input type="range" id="opacity2" min="0" max="1" step="0.01" value="0.7">1<br>
     </div>

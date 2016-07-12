@@ -24,18 +24,9 @@
           });
           m[suffix] = map;
 
-          //Add baselayers
-          API.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
-            subdomains: '1234',
-            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-            maxZoom: 18
-          }).addTo(map);
-
-          API.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', {
-            subdomains: '1234',
-            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-            maxZoom: 18,
-            opacity: 0.5
+          //Add baselayer
+          API.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+            attribution: '© OpenStreetMap contributors'
           }).addTo(map);
 
           //Add TileJSON overlay
@@ -68,7 +59,7 @@
     </script>
     <style>
       html, body{padding: 0; margin: 0; overflow: hidden;}
-      #mapL, #mapWE {position:absolute !important; top: 0; right: 0; bottom: 0; left: 0; 
+      #mapL, #mapWE {position:absolute !important; top: 0; right: 0; bottom: 0; left: 0;
                      background-color: #fff; position: absolute !important;}
       #mapL {right: 50%;}
       #mapWE {left: 50%;}

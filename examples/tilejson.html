@@ -6,8 +6,9 @@
       function initialize() {
         var earth = new WE.map('earth_div');
         earth.setView([44, 2], 6);
-        var options = {attribution: 'Tiles Courtesy of MapQuest'};
-        var base = WE.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', options).addTo(earth);
+        var base = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(earth);
         var swiss = WE.tileLayerJSON('http://tileserver.maptiler.com/swissimage25m.json');
         swiss.addTo(earth);
         earth.setTilt(50);
@@ -16,7 +17,7 @@
     </script>
     <style>
       html, body{padding: 0; margin: 0;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0; 
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0;
                  background-color: #000; position: absolute !important;}
       </style>
       <title>WebGL Earth API: TileJSON</title>
