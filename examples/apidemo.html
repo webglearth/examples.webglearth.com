@@ -11,12 +11,16 @@
           center: [36.057944835, -112.18688965],
           zoom: 10,
           dragging: true,
-          scrollWheelZoom: true,
-          proxyHost: 'http://srtm.webglearth.com/cgi-bin/corsproxy.fcgi?url='
+          scrollWheelZoom: true
         });
 
-        var baselayer = WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
+        var baselayer = WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
+          tileSize: 256,
+          bounds: [[-85, -180], [85, 180]],
+          minZoom: 0,
+          maxZoom: 16,
+          attribution: 'WebGLEarth example',
+          tms: true
         }).addTo(map);
 
         //Add TileJSON layer
@@ -33,7 +37,7 @@
 
         //Print coordinates of the mouse
         map.on('mousemove', function(e) {
-          document.getElementById('coordsDiv').innerHTML = e.latlng.lat + ', ' + e.latlng.lng;
+          document.getElementById('coords').innerHTML = e.latlng.lat + ', ' + e.latlng.lng;
         });
       }
 
