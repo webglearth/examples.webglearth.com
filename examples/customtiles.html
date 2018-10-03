@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script src="https://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
         var earth = new WE.map('earth_div');
         earth.setView([46.8011, 8.2266], 2);
-        WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
+        WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
           tileSize: 256,
           bounds: [[-85, -180], [85, 180]],
           minZoom: 0,
