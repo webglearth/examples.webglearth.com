@@ -1,4 +1,4 @@
-/* 
+/*
  * WebGL Earth Examples
  * Klokan Technologies GmbH 2014, Dalibor Janák
  */
@@ -60,7 +60,7 @@ $(document).ready(function() {
     updateContent(elem, name, link, desc);
     loadCode(link);
   } else {
-    loadCode('examples/satellite.html');
+    loadCode('examples/helloworld.html');
   }
 
 //copy to clipboard
