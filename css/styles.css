@@ -43,17 +43,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-size: 20px;
 }
-#header img, #logo{  
+#header img, #logo{
   width: 175px;
   height: 41px;
   display: inline-block;
 }
 h1{
-  color:#fff; 
-  font-weight: bold; 
-  width: 500px; 
-  display: inline-block; 
-  float: right; 
+  color:#fff;
+  font-weight: bold;
+  width: 500px;
+  display: inline-block;
+  float: right;
   text-align: right;
   padding: 15px 0 0 0;
   margin: 0;
@@ -89,25 +89,26 @@ ul, li{
 footer{
   clear: both;
   float: right;
+  text-align: right; 
   margin-top: 20px;
 }
 
 #nav{
-  width: 210px; 
-  display: block; 
-  float: left; 
+  width: 210px;
+  display: block;
+  float: left;
   text-align: right;
   padding: 75px 10px 10px 0;
 }
 #content{width: 740px; display: block;  float: left;}
 #view{
-  width: 740px; 
-  height: 400px; 
-  background-color: #fff;  
+  width: 740px;
+  height: 400px;
+  background-color: #fff;
   border: 1px solid #fff;
 }
 #source{
-  width: 720px; 
+  width: 720px;
   background-color: rgba(0,0,0,0.8);
   line-height: 1.2;
   font-family: "Courier New", Courier, monospace;

@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script src="https://www.webglearth.com/v2/api.js"></script>
     <script>
       var earth;
       function initialize() {
         earth = new WE.map('earth_div');
         earth.setView([46.8011, 8.2266], 3);
         WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
+          attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>'
         }).addTo(earth);
 
         // Start a simple rotation animation
@@ -25,8 +25,9 @@
     <style>
       html, body{padding: 0; margin: 0;}
       #earth_div{ top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
-    </style>   
-    <title>WebGL Earth API v2: Animation</title>
+    </style>
+    <title>WebGL Earth API v2 examples: Rotating globe animation</title>
+    <meta name="description" content="Free and open-source 3D digital globe for web and mobile devices. This example shows how to rotate the Earth in a beautiful animation.">
   </head>
   <body onload="initialize()">
     <div id="earth_div"></div>
